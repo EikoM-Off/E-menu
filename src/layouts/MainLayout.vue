@@ -1,5 +1,7 @@
 <template>
   <div>
+    <Navbar />
+    <Sidenav />
     <div class="container">
       <router-view/>
     </div>
@@ -7,13 +9,13 @@
 </template>
 
 <script>
-// import Sidenav from '@/components/Sidenav'
+import Sidenav from '@/components/Sidenav'
 // import Rightbar from '@/components/Rightbar'
-// import Navbar from '@/components/Navbar'
+import Navbar from '@/components/Navbar'
 
 export default {
-  /* components: {
+  components: {
     Sidenav, Navbar
-  } */
+  }
 }
 </script>
