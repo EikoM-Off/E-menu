@@ -54,5 +54,7 @@
   "bake": "Bake",
   "drinks": "Drinks",
   "menu": "Menu",
+  "add_to_order": "Add to order",
+  "order": "Order",
   "Choose_Option": "Choose"
 }
