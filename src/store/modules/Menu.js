@@ -84,12 +84,12 @@ export default {
 
        },
     menu_category_data: [
-      { title: 'salads', url: '/' },
+      { title: 'pop_dish', url: '/' },
       { title: 'first_meal', url: '/' },
-      { title: 'garnish', url: '/' },
-      { title: 'main_dish', url: '/' },
-      { title: 'fish', url: '/' },
       { title: 'second_meal', url: '/' },
+      { title: 'fish', url: '/' },
+      { title: 'garnish', url: '/' },
+      { title: 'salads', url: '/' },
       { title: 'bake', url: '/' },
       { title: 'drinks', url: '/' }
     ]
