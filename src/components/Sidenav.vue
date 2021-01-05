@@ -5,32 +5,33 @@
         <!-- <img src="https://img2.goodfon.ru/original/2048x2048/1/51/tekstura-uzor-svetlyy-fon.jpg"> -->
       </div>
       <a><img class="circle" src="https://tlt.aquarelle-centre.ru/upload/iblock/30e/coffee_hall.png"></a>
-      <a><span class="brown-text darken-4 name">name</span></a>
-      <a><span class="brown-text darken-4 email">E-mail: </span></a>
+      <a><span class="brown-text darken-4 name">{{CafeData.name}}</span></a>
+      <a><span class="brown-text darken-4 email">E-mail: {{CafeData.email}} </span></a>
     </div></li>
 
-      <ul class="collapsible" ref="collapsible">
-    <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-      <div class="collapsible-body truncate">
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-      </div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-  </ul>
+    <li><a class="subheader">{{'menu' | localize}}</a></li>
+    <div style="overflow-y: auto; height: 48%">
+      <li
+        v-for="(category, index) in CategoryMenuData"
+        :key="index"
+          >
+      <router-link :to="category.url">{{category.title | localize}} <i class="material-icons">send</i></router-link>
+      </li>
+    </div>
 
-    <li><div class="divider"></div></li>
-    <li><a class="waves-effect" href="#!" ><i class="material-icons">exit_to_app</i>piauwoeiru</a></li>
+    <div class="patreon-ad">
+    <li @click="closeSidenav">
+       <router-link to="/profile" class="black-text">
+         <i class="material-icons">account_circle</i>{{'Profile' | localize}}
+       </router-link>
+     </li>
+    <li class="divider" tabindex="-1"></li>
+     <li @click="closeSidenav">
+       <router-link to="/" class="black-text">
+         <i class="material-icons">exit_to_app</i>{{'Logout' | localize}}
+       </router-link>
+     </li>
+    </div>
   </ul>
 </template>
 
@@ -39,6 +40,19 @@ import M from 'materialize-css'
 export default {
   data: () => ({
   }),
+  computed: {
+    CafeData () {
+      return this.$store.getters.getCafeData
+    },
+    CategoryMenuData () {
+      return this.$store.getters.getCategoryMenuData
+    }
+  },
+  methods: {
+    closeSidenav () {
+      M.Sidenav.getInstance(this.$refs.main_sidenav).close()
+    }
+  },
   mounted () {
     M.Sidenav.init(this.$refs.main_sidenav, {})
     M.Collapsible.init(this.$refs.collapsible, {})

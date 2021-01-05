@@ -62,10 +62,10 @@ export default {
         commit('setMess', localizeFilter('Error') + ' "' + e + '"')
         throw e
       }
-    }
+    } */
   },
   mutations: {
-    addEntry (state, value) {
+    /* addEntry (state, value) {
       state.account_data = [
         ...state.account_data,
         value
@@ -80,53 +80,36 @@ export default {
     clearInfoAccs (state) {
       state.account_data = {}
     } */
+
+    setLocale (state, value) {
+      state.account_data.locale = value.value.id
+      state.account_data.title = value.value.title
+    },
+    setInfo (state, info) {
+      state.account_data = info
+    },
+    clearInfo (state) {
+      state.account_data = {
+        name: 'None',
+        age: 0,
+        bonus: 0,
+        locale: 'en-US',
+        title: 'English'
+      }
+    }
   },
   state: {
-    /* account_data: {},
-    Crypt: function (data, key) { // Зашифровать строку
-      var aes = new pidCrypt.AES.CBC()
-
-      return aes.encryptText(data, key)
-    },
-    deCrypt: function (data, key) { // Рассшифровать пароли
-      var aes = new pidCrypt.AES.CBC()
-
-      for (var category in data) {
-        for (var password in data[category]) {
-          data[category][password].pass = aes.decryptText(data[category][password].pass, key)
-        }
-      }
-      return data
-    },
-    arrayCrypt: function (data, key) { // Зашифровать пароли
-      var aes = new pidCrypt.AES.CBC()
-
-      for (var category in data) {
-        for (var password in data[category]) {
-          data[category][password].pass = aes.encryptText(data[category][password].pass, key)
-        }
-      }
-      return data
-    } */
+    account_data: {
+      name: 'SomeName',
+      age: 23,
+      bonus: 123,
+      locale: 'ru-RU',
+      title: 'Русский'
+    }
   },
   getters: {
-    /* getAccData (state) {
+    getAccountData (state) {
       return state.account_data
-    },
-    getCountAccData (state) {
-      var info = state.account_data
-      var data = []
-      var i = 0; var j = 0
-      for (var category in info) {
-        j = 0
-        i++
-        for (var password in info[category]) {
-          info[category][password] = state.account_data[category][password]
-          j++
-          data[i - 1] = j
-        }
-      }
-      return data
-    } */
+    }
   }
 }

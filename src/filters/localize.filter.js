@@ -8,6 +8,6 @@ const locales = {
 }
 
 export default function localizeFilter (key) {
-  const locale = store.getters.getLoginData.locale || 'en-US'
+  const locale = store.getters.getAccountData.locale || 'en-US'
   return locales[locale][key] || `[Localize error]: key ${key} not found`
 }

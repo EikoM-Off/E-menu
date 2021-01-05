@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import AccountData from './modules/AccountData'
-import LoginData from './modules/LoginData'
 import auth from './modules/auth'
 import Preloader from './modules/Preloader'
 import Notice from './modules/Message'
+import CafeData from './modules/CafeData'
+import AccountData from './modules/AccountData'
+import Menu from './modules/Menu'
 
 Vue.use(Vuex)
 
@@ -24,6 +25,6 @@ export default new Vuex.Store({
     error: s => s.error
   },
   modules: {
-    AccountData, LoginData, auth, Preloader, Notice
+    auth, Preloader, Notice, CafeData, AccountData, Menu
   }
 })

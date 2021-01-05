@@ -40,6 +40,19 @@
   "Change_Pass": "Change password",
   "password_change_email": "A password change email has been sent to your email",
   "Author_Page": "Author page",
+  "Table": "Table",
+  "Profile": "Profile",
+  "Bonus": "Bonus points",
+  "Personal_Data": "Personal data",
+  "Age": "Age",
+  "salads": "Salads",
+  "first_meal": "First meal",
+  "garnish": "Garnish",
+  "main_dish": "Main dish",
+  "fish": "Fish",
+  "second_meal": "Second meal",
+  "bake": "Bake",
+  "drinks": "Drinks",
+  "menu": "Menu",
   "Choose_Option": "Choose"
-
 }
