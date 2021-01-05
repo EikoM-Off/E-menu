@@ -8,7 +8,7 @@
 
     <div class="col s12 m6 l3">
        <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
+    <div class="card-image pointer unselectable">
       <img class="activator" src="https://im0-tub-kz.yandex.net/i?id=6274e99ca195c9813549526fe1a6faf1-l&n=13">
     </div>
     <div class="card-content">
@@ -24,7 +24,7 @@
     </div>
     <div class="col s12 m6 l3">
        <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
+    <div class="card-image pointer unselectable">
       <img class="activator" src="https://im0-tub-kz.yandex.net/i?id=6274e99ca195c9813549526fe1a6faf1-l&n=13">
     </div>
     <div class="card-content">
@@ -40,7 +40,7 @@
     </div>
     <div class="col s12 m6 l3">
        <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
+    <div class="card-image pointer unselectable">
       <img class="activator" src="https://im0-tub-kz.yandex.net/i?id=6274e99ca195c9813549526fe1a6faf1-l&n=13">
     </div>
     <div class="card-content">
@@ -56,7 +56,7 @@
     </div>
     <div class="col s12 m6 l3">
        <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
+    <div class="card-image pointer unselectable">
       <img class="activator" src="https://im0-tub-kz.yandex.net/i?id=6274e99ca195c9813549526fe1a6faf1-l&n=13">
     </div>
     <div class="card-content">
