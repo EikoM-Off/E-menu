@@ -12,13 +12,14 @@
       <img class="activator" src="https://im0-tub-kz.yandex.net/i?id=6274e99ca195c9813549526fe1a6faf1-l&n=13">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Стейк из говядины<i class="material-icons right">more_vert</i></span>
-      <p>Очень вкусное и сочное мясо на гриле.<br>
-        <br><a href="#">{{'add_to_order' | localize}}</a></p>
+      <span class="card-title activator grey-text text-darken-4">Beef steak<i class="material-icons right">more_vert</i></span>
+      <p>Very tasty and juicy grilled meat.<br>
+        </p>
+        <div><br><a href="#" class="right">{{'add_to_order' | localize}}</a><br></div>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Ингредиенты:<i class="material-icons right">close</i></span>
-      <p>Говядина, Соевый соус, Масло кунжутное, Сахар коричневый, Имбирь, Чеснок, Перец чили, Соль, Розмарин</p>
+      <span class="card-title grey-text text-darken-4">{{'ingredients' | localize}}:<i class="material-icons right">close</i></span>
+      <p>Beef, Soy sauce, Sesame oil, Brown sugar, Ginger, Garlic, Chili pepper, Salt, Rosemary</p>
     </div>
   </div>
     </div>
@@ -28,13 +29,14 @@
       <img class="activator" src="https://im0-tub-kz.yandex.net/i?id=6274e99ca195c9813549526fe1a6faf1-l&n=13">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Стейк из говядины<i class="material-icons right">more_vert</i></span>
-      <p>Очень вкусное и сочное мясо на гриле.<br>
-        <br><a href="#">{{'add_to_order' | localize}}</a></p>
+      <span class="card-title activator grey-text text-darken-4">Beef steak<i class="material-icons right">more_vert</i></span>
+      <p>Very tasty and juicy grilled meat.<br>
+        </p>
+        <div><br><a href="#" class="right">{{'add_to_order' | localize}}</a><br></div>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Ингредиенты:<i class="material-icons right">close</i></span>
-      <p>Говядина, Соевый соус, Масло кунжутное, Сахар коричневый, Имбирь, Чеснок, Перец чили, Соль, Розмарин</p>
+      <span class="card-title grey-text text-darken-4">{{'ingredients' | localize}}:<i class="material-icons right">close</i></span>
+      <p>Beef, Soy sauce, Sesame oil, Brown sugar, Ginger, Garlic, Chili pepper, Salt, Rosemary</p>
     </div>
   </div>
     </div>
@@ -44,13 +46,14 @@
       <img class="activator" src="https://im0-tub-kz.yandex.net/i?id=6274e99ca195c9813549526fe1a6faf1-l&n=13">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Стейк из говядины<i class="material-icons right">more_vert</i></span>
-      <p>Очень вкусное и сочное мясо на гриле.<br>
-        <br><a href="#">{{'add_to_order' | localize}}</a></p>
+      <span class="card-title activator grey-text text-darken-4">Beef steak<i class="material-icons right">more_vert</i></span>
+      <p>Very tasty and juicy grilled meat.<br>
+        </p>
+        <div><br><a href="#" class="right">{{'add_to_order' | localize}}</a><br></div>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Ингредиенты:<i class="material-icons right">close</i></span>
-      <p>Говядина, Соевый соус, Масло кунжутное, Сахар коричневый, Имбирь, Чеснок, Перец чили, Соль, Розмарин</p>
+      <span class="card-title grey-text text-darken-4">{{'ingredients' | localize}}:<i class="material-icons right">close</i></span>
+      <p>Beef, Soy sauce, Sesame oil, Brown sugar, Ginger, Garlic, Chili pepper, Salt, Rosemary</p>
     </div>
   </div>
     </div>
@@ -60,13 +63,14 @@
       <img class="activator" src="https://im0-tub-kz.yandex.net/i?id=6274e99ca195c9813549526fe1a6faf1-l&n=13">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Стейк из говядины<i class="material-icons right">more_vert</i></span>
-      <p>Очень вкусное и сочное мясо на гриле.<br>
-        <br><a href="#">{{'add_to_order' | localize}}</a></p>
+      <span class="card-title activator grey-text text-darken-4">Beef steak<i class="material-icons right">more_vert</i></span>
+      <p>Very tasty and juicy grilled meat.<br>
+        </p>
+        <div><br><a href="#" class="right">{{'add_to_order' | localize}}</a><br></div>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Ингредиенты:<i class="material-icons right">close</i></span>
-      <p>Говядина, Соевый соус, Масло кунжутное, Сахар коричневый, Имбирь, Чеснок, Перец чили, Соль, Розмарин</p>
+      <span class="card-title grey-text text-darken-4">{{'ingredients' | localize}}:<i class="material-icons right">close</i></span>
+      <p>Beef, Soy sauce, Sesame oil, Brown sugar, Ginger, Garlic, Chili pepper, Salt, Rosemary</p>
     </div>
   </div>
     </div>

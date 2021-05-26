@@ -8,8 +8,8 @@ export default {
   state: {
     cafe_data:
       {
-        name: 'Grand Cafe',
-        email: 'grand-cafe@some_mail.none'
+        name: 'Yammy Food',
+        email: 'yammy-food@gmail.com'
       }
   },
   getters: {

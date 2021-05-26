@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar-fixed brown lighten-1">
+<nav class="navbar-fixed yellow darken-3">
     <div class="nav-wrapper">
       <a data-target="slide-out" class="sidenav-trigger show-on-medium-and-up"><i class="material-icons" style="cursor: pointer">restaurant_menu</i></a>
      <ul class="right">

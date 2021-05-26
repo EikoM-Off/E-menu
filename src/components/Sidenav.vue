@@ -1,10 +1,10 @@
 <template>
   <ul id="slide-out" class="sidenav" ref="main_sidenav">
     <li><div class="user-view">
-      <div class="background teal lighten-5">
+      <div class="background yellow lighten-5">
         <!-- <img src="https://img2.goodfon.ru/original/2048x2048/1/51/tekstura-uzor-svetlyy-fon.jpg"> -->
       </div>
-      <a><img class="circle" src="https://tlt.aquarelle-centre.ru/upload/iblock/30e/coffee_hall.png"></a>
+      <a><img class="circle" src="../assets/img/fried-eggs.png"></a>
       <a><span class="brown-text darken-4 name">{{CafeData.name}}</span></a>
       <a><span class="brown-text darken-4 email">E-mail: {{CafeData.email}} </span></a>
     </div></li>
