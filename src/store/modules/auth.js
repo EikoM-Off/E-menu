@@ -1,9 +1,9 @@
-// import firebase from 'firebase/app'
-// import localizeFilter from '@/filters/localize.filter'
+import firebase from 'firebase/app'
+import localizeFilter from '@/filters/localize.filter'
 
 export default {
   actions: {
-  /* async login ({ commit }, { email, password }) { // логин
+    async login ({ commit }, { email, password }) { // логин
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password)
       } catch (e) {
@@ -44,6 +44,6 @@ export default {
       }).catch(function (error) {
         commit('setMess', error)
       })
-    } */
+    }
   }
 }

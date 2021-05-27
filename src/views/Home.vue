@@ -111,13 +111,15 @@
 
   </div>
 
- <FloatButton/>
+ <FloatButton />
+ <LoginModal />
 
 </div>
 </template>
 
 <script>
 import FloatButton from '@/components/FloatButton'
+import LoginModal from '@/components/Login'
 // import preloader from '@/components/PreLoader'
 // import M from 'materialize-css'
 export default {
@@ -126,7 +128,7 @@ export default {
   }),
   props: ['category'],
   components: {
-    FloatButton // , preloader
+    FloatButton, LoginModal // , preloader
   },
   methods: {
 
