@@ -39,6 +39,7 @@
 import M from 'materialize-css'
 export default {
   data: () => ({
+    category: 'popular'
   }),
   computed: {
     CafeData () {

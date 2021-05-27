@@ -46,16 +46,42 @@ export default {
   state: {
     menu_data:
        {
+         popular: [
+           [{
+             title: 'Beef steak',
+             comment: 'Very tasty and juicy grilled meat.',
+             img: 'https://im0-tub-kz.yandex.net/i?id=6274e99ca195c9813549526fe1a6faf1-l&n=13',
+             weight: 330,
+             calories: 1200,
+             cost: 2400,
+             composition: 'Beef, Soy sauce, Sesame oil, Brown sugar, Ginger, Garlic, Chili pepper, Salt, Rosemary'
+           }],
+           [{
+             title: 'Caesar salad',
+             comment: 'smth',
+             img: '',
+             weight: 250,
+             calories: 480,
+             cost: 1200,
+             composition: 'something'
+           }]
+         ],
          salad: [
            [{
              title: 'Greek salad',
+             comment: 'smth',
+             img: 'https://donatewales.org/wp-content/uploads/2/3/3/2333952cbbb6788c4ae051b953b5fc5e.jpeg',
              weight: 100,
+             calories: 380,
              cost: 900,
              composition: 'something'
            }],
            [{
              title: 'Caesar salad',
+             comment: 'smth',
+             img: '',
              weight: 250,
+             calories: 480,
              cost: 1200,
              composition: 'something'
            }]

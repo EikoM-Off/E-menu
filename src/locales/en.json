@@ -57,5 +57,11 @@
   "add_to_order": "Add to order",
   "order": "Order",
   "ingredients": "Ingredients",
+  "cost": "Cost",
+  "kzt": "KZT",
+  "weight": "Weight",
+  "calories": "Calories",
+  "g": "g",
+  "kkal": "kkal",
   "Choose_Option": "Choose"
 }

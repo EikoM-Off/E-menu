@@ -57,5 +57,11 @@
   "add_to_order": "Добавить к заказу",
   "order": "Заказ",
   "ingredients": "Ингредиенты",
+  "cost": "Цена",
+  "kzt": "Тг",
+  "weight": "Вес",
+  "calories": "Каллорий",
+  "g": "г",
+  "kkal": "ккал",
   "Choose_Option": "Выберите"
 }
