@@ -26,6 +26,14 @@ export default {
         throw e
       }
     },
+    async guest ({ commit }) { // логин анонимно, гость
+      try {
+        await firebase.auth().signInAnonymously()
+      } catch (e) {
+        commit('setMess', e)
+        throw e
+      }
+    },
     getUid () { // получаем ид пользователя
       const user = firebase.auth().currentUser
       return user ? user.uid : null

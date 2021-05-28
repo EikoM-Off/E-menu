@@ -1,8 +1,8 @@
 <template>
-<div class="row m-b-none" style="max-width:600px">
+<div class="row m-b-none" style="max-width:300px">
   <div class="card">
     <div class="card-content grey-text text-darken-4">
-        <h2 class="center-align">{{'SignUp' | localize}}</h2>
+        <h3 class="center-align">{{'SignUp' | localize}}</h3>
         <preloader v-if="preload" />
         <form @submit.prevent="submitHandler">
           <div class="input-field col s12 padder-x">
@@ -55,10 +55,10 @@
             </small>
           </div>
 
-          <button type="submit" class="col s12 btn waves-effect waves-light btn btn-large m-md brown">{{'SignUp' | localize}}</button>
+          <button type="submit" class="col s12 btn waves-effect waves-light btn btn-large m-md yellow darken-4">{{'SignUp' | localize}}</button>
           <div>
             <label class="center-align">
-              <h6><router-link class="waves-effect waves-teal btn-flat blue-grey-text text-darken-4" to="/">{{'SignIn' | localize}}</router-link></h6>
+              <h6><a class="waves-effect waves-teal btn-flat blue-grey-text text-darken-4" @click="log_method">{{'SignIn' | localize}}</a></h6>
             </label>
           </div>
         </form>
@@ -97,6 +97,9 @@ export default {
     }
   },
   methods: {
+    log_method: function () { // передача на логин опции
+      this.$emit('log_method', 'login')
+    },
     async submitHandler () {
       if (this.$v.$invalid) {
         this.$v.$touch()
@@ -112,7 +115,7 @@ export default {
         this.preload = true
         await this.$store.dispatch('register', formData)
         this.preload = false
-        this.$router.push('/main')
+        this.$router.push('/')
       } catch (e) { this.preload = false }
     }
   },

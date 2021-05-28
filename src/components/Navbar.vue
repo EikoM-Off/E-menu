@@ -1,4 +1,5 @@
 <template>
+<div>
 <nav class="navbar-fixed yellow darken-3">
     <div class="nav-wrapper">
       <a data-target="slide-out" class="sidenav-trigger show-on-medium-and-up"><i class="material-icons" style="cursor: pointer">restaurant_menu</i></a>
@@ -34,12 +35,17 @@
     </li>
 </ul>
 
-  </nav>
+</nav>
+
+<LoginModal />
+</div>
 </template>
 
 <script>
 import M from 'materialize-css'
 import { mapGetters, mapMutations } from 'vuex'
+import LoginModal from '@/components/Modal'
+
 export default {
   data: () => ({
     localize: [
@@ -65,6 +71,7 @@ export default {
       })
       // this.$store.dispatch('updatefetchInfo')
     }
-  }
+  },
+  components: { LoginModal }
 }
 </script>

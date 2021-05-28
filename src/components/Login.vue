@@ -1,5 +1,4 @@
 <template>
-<div id="modalLogin" class="modal" ref="modalLogin">
 <div class="row" style="max-width:300px">
   <div class="card">
     <div class="card-content grey-text text-darken-4">
@@ -38,20 +37,14 @@
          Password must be {{$v.password.$params.minLength.min}} characters. Now: {{password.length}}
         </small>
           </div>
-          <button type="submit" class="col s12 btn waves-effect waves-light btn btn-large m-md brown">{{'Login' | localize}}</button>
+          <button type="submit" class="col s12 btn waves-effect waves-light btn btn-large m-md yellow darken-4">{{'Login' | localize}}</button>
           <div>
             <label class="center-align">
-              <h6><router-link class="waves-effect waves-teal btn-flat blue-grey-text text-darken-4" to="register">{{'SignUp' | localize}}</router-link></h6>
+              <h6><a class="waves-effect waves-teal btn-flat blue-grey-text text-darken-4" @click="reg_method">{{'SignUp' | localize}}</a></h6>
             </label>
           </div>
         </form>
     </div>
-  </div>
-</div>
-<div class="modal-footer">
-      <a class="modal-close btn-flat right unselectable" @click="onCancel">{{'Cancel' | localize}}</a>
-    </div>
-  <div>
   </div>
 </div>
 </template>
@@ -84,6 +77,9 @@ export default {
     }
   },
   methods: {
+    reg_method: function () { // передача на регистрацию опции
+      this.$emit('reg_method', 'register')
+    },
     async submitHandler () { // отправка данных формы
       if (this.$v.$invalid) {
         this.$v.$touch()
@@ -98,12 +94,12 @@ export default {
         this.preload = true // включение прелоадера
         await this.$store.dispatch('login', formData) // вызов метода логин
         this.preload = false // выключение прелоадера
-        this.$router.push('/main') // переход на страницу
+        this.$router.push('/') // переход на страницу
       } catch (e) { this.preload = false }
     },
     async trylogin () { // если активна сессия
       try {
-        if (await this.$store.dispatch('getUid') != null) { this.$router.push('/main') } // сюда вставить метод с пинкодом
+        if (await this.$store.dispatch('getUid') != null) { this.$router.push('/') } // сюда вставить метод с пинкодом
       } catch (e) { }
     },
     onCancel: function () {
