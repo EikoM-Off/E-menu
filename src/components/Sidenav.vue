@@ -26,7 +26,7 @@
        </router-link>
      </li>
     <li class="divider" tabindex="-1"></li>
-     <li @click="closeSidenav">
+     <li @click="logout">
        <router-link to="/" class="black-text">
          <i class="material-icons">exit_to_app</i>{{'Logout' | localize}}
        </router-link>
@@ -52,6 +52,11 @@ export default {
   methods: {
     closeSidenav () {
       M.Sidenav.getInstance(this.$refs.main_sidenav).close()
+    },
+    async logout () {
+      await this.$store.dispatch('logout')
+      M.Sidenav.getInstance(this.$refs.main_sidenav).close()
+      this.$router.push('/')
     }
   },
   mounted () {

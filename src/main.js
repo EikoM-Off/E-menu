@@ -19,6 +19,7 @@ Vue.use(Vuelidate)
 var firebaseConfig = {
   apiKey: 'AIzaSyBilDwYRM23fAvjZlmr4hTZgcFVQl9v89A',
   authDomain: 'e-menu-57517.firebaseapp.com',
+  databaseURL: 'https://e-menu-57517-default-rtdb.europe-west1.firebasedatabase.app',
   projectId: 'e-menu-57517',
   storageBucket: 'e-menu-57517.appspot.com',
   messagingSenderId: '162702185456',

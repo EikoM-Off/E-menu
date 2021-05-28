@@ -118,7 +118,7 @@
 
 <script>
 import FloatButton from '@/components/FloatButton'
-
+import messages from '@/utils/messages'
 // import preloader from '@/components/PreLoader'
 // import M from 'materialize-css'
 export default {
@@ -128,6 +128,24 @@ export default {
   props: ['category'],
   components: {
     FloatButton // , preloader
+  },
+  computed: {
+    mess () {
+      return this.$store.getters.getMess // получаем сообщения
+    }
+  },
+  watch: {
+    mess: function () { // наблюдаем за переменной с сообщением и если что выводим
+      if (this.mess !== '') { this.$message(this.mess) }
+      this.$store.commit('clearMess') // обнуляем сообщения
+    }
+  },
+  mounted () {
+    if (messages[this.$route.query.message]) { // выводим сообщения
+      this.$message(messages[this.$route.query.message])
+    }
+    this.trylogin() // пытаемся залогиниться
+    // M.Modal.init(this.$refs.modalLogin, {})
   },
   methods: {
 

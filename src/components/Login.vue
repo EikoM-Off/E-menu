@@ -51,7 +51,6 @@
 
 <script>
 import M from 'materialize-css'
-import messages from '@/utils/messages'
 import preloader from '@/components/PreLoader'
 import { required, minLength, email } from 'vuelidate/lib/validators'
 
@@ -64,17 +63,6 @@ export default {
   validations: {
     email: { email, required },
     password: { minLength: minLength(6), required }
-  },
-  computed: {
-    mess () {
-      return this.$store.getters.getMess // получаем сообщения
-    }
-  },
-  watch: {
-    mess: function () { // наблюдаем за переменной с сообщением и если что выводим
-      if (this.mess !== '') { this.$message(this.mess) }
-      this.$store.commit('clearMess') // обнуляем сообщения
-    }
   },
   methods: {
     reg_method: function () { // передача на регистрацию опции
@@ -94,26 +82,20 @@ export default {
         this.preload = true // включение прелоадера
         await this.$store.dispatch('login', formData) // вызов метода логин
         this.preload = false // выключение прелоадера
-        this.$router.push('/') // переход на страницу
+        this.$emit('closeModalL') // отправить на закрытие модального окна
       } catch (e) { this.preload = false }
     },
     async trylogin () { // если активна сессия
       try {
-        if (await this.$store.dispatch('getUid') != null) { this.$router.push('/') } // сюда вставить метод с пинкодом
+        if (await this.$store.dispatch('getUid') != null) { this.$emit('closeModalL') }
       } catch (e) { }
     },
     onCancel: function () {
-      // this.$v.$reset()
+      this.$v.$reset()
       M.Modal.getInstance(this.$refs.modalLogin).close()
     }
   },
-  mounted () {
-    if (messages[this.$route.query.message]) { // выводим сообщения
-      this.$message(messages[this.$route.query.message])
-    }
-    this.trylogin() // пытаемся залогиниться
-    M.Modal.init(this.$refs.modalLogin, {})
-  },
+
   components: {
     preloader
   }

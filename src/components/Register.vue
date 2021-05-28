@@ -115,7 +115,7 @@ export default {
         this.preload = true
         await this.$store.dispatch('register', formData)
         this.preload = false
-        this.$router.push('/')
+        this.$emit('closeModalR') // отправить на закрытие модального окна
       } catch (e) { this.preload = false }
     }
   },

@@ -1,8 +1,8 @@
 <template>
 <div id="modalLogin" class="modal" ref="modalLogin">
 <ChMethod v-if="modalWindow == 'chMethod'" v-on:log_method="modalWindow = $event" v-on:closeModal="closeModal"/>
-<Login v-else-if="modalWindow == 'login'" v-on:reg_method="modalWindow = $event"/>
-<Register v-else-if="modalWindow == 'register'" v-on:log_method="modalWindow = $event"/>
+<Login v-else-if="modalWindow == 'login'" v-on:reg_method="modalWindow = $event" v-on:closeModalL="closeModal"/>
+<Register v-else-if="modalWindow == 'register'" v-on:log_method="modalWindow = $event" v-on:closeModalR="closeModal"/>
 <div class="modal-footer">
       <a class="modal-close btn-flat right unselectable" @click="modalWindow = 'chMethod'">{{'Cancel' | localize}}</a>
     </div>

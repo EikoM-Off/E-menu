@@ -6,6 +6,7 @@ export default {
     async login ({ commit }, { email, password }) { // логин
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password)
+        commit('setMess', localizeFilter('Logged'))
       } catch (e) {
         commit('setMess', e)
         throw e
@@ -21,6 +22,7 @@ export default {
           locale: 'en-US',
           title: 'English'
         })
+        commit('setMess', localizeFilter('registered'))
       } catch (e) {
         commit('setMess', e)
         throw e
@@ -29,6 +31,7 @@ export default {
     async guest ({ commit }) { // логин анонимно, гость
       try {
         await firebase.auth().signInAnonymously()
+        commit('setMess', localizeFilter('LoggedGuest'))
       } catch (e) {
         commit('setMess', e)
         throw e
@@ -42,6 +45,7 @@ export default {
       await firebase.auth().signOut()
       commit('clearInfo')
       commit('clearInfoAccs')
+      commit('setMess', localizeFilter('LoggedOut'))
     },
     async changePassword ({ commit }) { // отправляем запрос на смену пароля
       var auth = firebase.auth()
