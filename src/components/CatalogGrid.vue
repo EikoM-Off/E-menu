@@ -21,7 +21,7 @@
         <p v-if="locale == 'ru-RU'">{{dish.comment_RU}}<br></p>
       </div>
       <div class="card-action right-align">
-          <a href="#">{{'add_to_order' | localize}}</a>
+          <span class="waves-effect waves-light btn-flat amber-text text-darken-2" @click="addDish(dish)">{{'add_to_order' | localize}}</span>
           </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">{{'ingredients' | localize}}:<i class="material-icons right">close</i></span>
@@ -72,7 +72,9 @@ export default {
     this.$store.dispatch('fetchInfo_Menu') // выкачиваем из бд меню
   },
   methods: {
-
+    addDish (data) {
+      this.$store.dispatch('addDish', data) // добавляем в заказ блюдо
+    }
   }
 
 }
