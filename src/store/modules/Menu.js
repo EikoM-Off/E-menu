@@ -30,6 +30,10 @@ export default {
     },
     clearInfo_Menu (state) {
       state.menu = {}
+      state.choosed_category = 'popular'
+    },
+    changeCategory (state, category) {
+      state.choosed_category = category
     }
   },
   state: {
@@ -57,7 +61,7 @@ export default {
         title_RU: 'Греческий салат',
         weight: 250
       }],
-      salad: [{
+      salads: [{
         calories: 380,
         comment_EN: 'Refreshing Great Taste and Health Benefits.',
         comment_RU: 'Прекрасный освежающий вкус и польза для здоровья.',
@@ -71,7 +75,7 @@ export default {
       }]
     },
     menu_category_data: [
-      { title: 'pop_dish', url: '/' },
+      { title: 'popular', url: '/' },
       { title: 'first_meal', url: '/' },
       { title: 'second_meal', url: '/' },
       { title: 'fish', url: '/' },
@@ -79,14 +83,18 @@ export default {
       { title: 'salads', url: '/' },
       { title: 'bake', url: '/' },
       { title: 'drinks', url: '/' }
-    ]
+    ],
+    choosed_category: 'popular'
   },
   getters: {
     getMenuData (state) {
-      return state.menu
+      return state.menu[state.choosed_category]
     },
     getCategoryMenuData (state) {
       return state.menu_category_data
+    },
+    getCategory (state) {
+      return state.choosed_category
     }
   }
 

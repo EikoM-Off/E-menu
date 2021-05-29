@@ -15,7 +15,7 @@
         v-for="(category, index) in CategoryMenuData"
         :key="index"
           >
-      <router-link :to="category.url">{{category.title | localize}} <i class="material-icons">send</i></router-link>
+      <a class="pointer" @click="changeCategory (category.title)">{{category.title | localize}} <i class="material-icons">send</i></a>
       </li>
     </div>
 
@@ -39,7 +39,6 @@
 import M from 'materialize-css'
 export default {
   data: () => ({
-    category: 'popular'
   }),
   computed: {
     CafeData () {
@@ -53,10 +52,15 @@ export default {
     closeSidenav () {
       M.Sidenav.getInstance(this.$refs.main_sidenav).close()
     },
+    changeCategory (category) {
+      this.$store.commit('changeCategory', category)
+      this.closeSidenav()
+      this.$router.push('/').catch(() => {})
+    },
     async logout () {
       await this.$store.dispatch('logout')
       M.Sidenav.getInstance(this.$refs.main_sidenav).close()
-      // this.$router.push('/')
+      this.$router.go()
     }
   },
   mounted () {

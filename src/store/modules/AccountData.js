@@ -57,6 +57,9 @@ export default {
   getters: {
     getAccountData (state) {
       return state.account_data
+    },
+    getLocale (state) {
+      return state.account_data.locale
     }
   }
 }
