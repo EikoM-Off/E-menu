@@ -69,7 +69,7 @@ export default {
       this.setLocale({
         value: this.choosed
       })
-      // this.$store.dispatch('updatefetchInfo')
+      this.$store.dispatch('updatefetchInfo')
     }
   },
   components: { LoginModal }

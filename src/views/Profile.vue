@@ -11,9 +11,9 @@
     <div class="col s12 m6 l6 xl9 right">
       <ul class="collection with-header">
             <li class="collection-header"><h4>{{'Personal_Data' | localize}}</h4></li>
-              <li class="collection-item"><b>{{'YName' | localize}}:</b> </li>
-              <li class="collection-item"><b>{{'Age' | localize}}:</b>  </li>
-              <li class="collection-item"><b>{{'Bonus' | localize}}:</b>  </li>
+              <li class="collection-item"><b>{{'YName' | localize}}: {{personalData.name}}</b> </li>
+              <li class="collection-item"><b>{{'Age' | localize}}: {{personalData.age}}</b>  </li>
+              <li class="collection-item"><b>{{'Bonus' | localize}}: {{personalData.bonus}}</b>  </li>
         </ul>
     </div>
 
@@ -28,11 +28,17 @@
 <script>
 import PasswordChange from '@/components/PasswordChange.vue'
 export default {
-  /* computed: {
+  computed: {
     personalData () {
-      return this.$store.getters.getPersData
+      return this.$store.getters.getAccountData
+    },
+    preload () {
+      return this.$store.getters.isUiLocked
     }
-  }, */
+  },
+  mounted () {
+    this.$store.dispatch('fetchInfo') // получаем данные
+  },
   components: {
     PasswordChange
   }

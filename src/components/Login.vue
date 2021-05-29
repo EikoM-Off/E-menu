@@ -81,13 +81,17 @@ export default {
       try {
         this.preload = true // включение прелоадера
         await this.$store.dispatch('login', formData) // вызов метода логин
+        this.$store.dispatch('fetchInfo')
         this.preload = false // выключение прелоадера
         this.$emit('closeModalL') // отправить на закрытие модального окна
       } catch (e) { this.preload = false }
     },
     async trylogin () { // если активна сессия
       try {
-        if (await this.$store.dispatch('getUid') != null) { this.$emit('closeModalL') }
+        if (await this.$store.dispatch('getUid') != null) {
+          this.$emit('closeModalL')
+          this.$store.dispatch('fetchInfo')
+        }
       } catch (e) { }
     },
     onCancel: function () {

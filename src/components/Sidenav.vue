@@ -56,7 +56,7 @@ export default {
     async logout () {
       await this.$store.dispatch('logout')
       M.Sidenav.getInstance(this.$refs.main_sidenav).close()
-      this.$router.push('/')
+      // this.$router.push('/')
     }
   },
   mounted () {

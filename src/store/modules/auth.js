@@ -19,8 +19,10 @@ export default {
         await firebase.database().ref(`/users/${uid}/info`).set({
           name,
           email,
-          locale: 'en-US',
-          title: 'English'
+          age: 0,
+          bonus: 0,
+          locale: 'ru-RU',
+          title: 'Русский'
         })
         commit('setMess', localizeFilter('registered'))
       } catch (e) {
@@ -28,9 +30,18 @@ export default {
         throw e
       }
     },
-    async guest ({ commit }) { // логин анонимно, гость
+    async guest ({ dispatch, commit }) { // логин анонимно, гость
       try {
         await firebase.auth().signInAnonymously()
+        const uid = await dispatch('getUid')
+        await firebase.database().ref(`/users/${uid}/info`).set({
+          name: 'guest',
+          email: '',
+          age: 0,
+          bonus: 0,
+          locale: 'ru-RU',
+          title: 'Русский'
+        })
         commit('setMess', localizeFilter('LoggedGuest'))
       } catch (e) {
         commit('setMess', e)
@@ -44,7 +55,7 @@ export default {
     async logout ({ commit }) { // логаут
       await firebase.auth().signOut()
       commit('clearInfo')
-      commit('clearInfoAccs')
+      // commit('clearInfoAccs')
       commit('setMess', localizeFilter('LoggedOut'))
     },
     async changePassword ({ commit }) { // отправляем запрос на смену пароля
