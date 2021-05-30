@@ -78,5 +78,6 @@
   "pay": "Pay",
   "not_paid": "Not paid",
   "paid": "Paid",
+  "no_table": "Table not defined, scan the QR code again",
   "Choose_Option": "Choose"
 }

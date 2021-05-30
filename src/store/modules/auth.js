@@ -3,52 +3,58 @@ import localizeFilter from '@/filters/localize.filter'
 
 export default {
   actions: {
-    async login ({ commit, dispatch }, { email, password }) { // логин
+    async login ({ commit, dispatch, getters }, { email, password }) { // логин
       try {
-        await firebase.auth().signInWithEmailAndPassword(email, password)
-        await dispatch('fetchInfo') // получить инфу о профиле
-        await dispatch('updatefetchInfo_Order') // обновить инфу о заказе
-        commit('setMess', localizeFilter('Logged'))
+        if (getters.getOrderData.table != null) {
+          await firebase.auth().signInWithEmailAndPassword(email, password)
+          await dispatch('fetchInfo') // получить инфу о профиле
+          await dispatch('createInfo_Order') // создать инфу о заказе
+          commit('setMess', localizeFilter('Logged'))
+        } else { throw new Error(localizeFilter('no_table')) }
       } catch (e) {
         commit('setMess', e)
         throw e
       }
     },
-    async register ({ dispatch, commit }, { email, password, name }) { // регистрация
+    async register ({ dispatch, commit, getters }, { email, password, name }) { // регистрация
       try {
-        await firebase.auth().createUserWithEmailAndPassword(email, password)
-        const uid = await dispatch('getUid')
-        await firebase.database().ref(`/users/${uid}/info`).set({
-          name,
-          email,
-          age: 0,
-          bonus: 0,
-          locale: 'ru-RU',
-          title: 'Русский'
-        })
-        await dispatch('fetchInfo') // получить инфу о профиле
-        await dispatch('updatefetchInfo_Order') // обновить инфу о заказе
-        commit('setMess', localizeFilter('registered'))
+        if (getters.getOrderData.table != null) {
+          await firebase.auth().createUserWithEmailAndPassword(email, password)
+          const uid = await dispatch('getUid')
+          await firebase.database().ref(`/users/${uid}/info`).set({
+            name,
+            email,
+            age: 0,
+            bonus: 0,
+            locale: 'ru-RU',
+            title: 'Русский'
+          })
+          await dispatch('fetchInfo') // получить инфу о профиле
+          // await dispatch('updatefetchInfo_Order') // обновить инфу о заказе
+          commit('setMess', localizeFilter('registered'))
+        } else { throw new Error(localizeFilter('no_table')) }
       } catch (e) {
         commit('setMess', e)
         throw e
       }
     },
-    async guest ({ dispatch, commit }) { // логин анонимно, гость
+    async guest ({ dispatch, commit, getters }) { // логин анонимно, гость
       try {
-        await firebase.auth().signInAnonymously()
-        const uid = await dispatch('getUid')
-        await firebase.database().ref(`/users/${uid}/info`).set({
-          name: 'guest',
-          email: '',
-          age: 0,
-          bonus: 0,
-          locale: 'ru-RU',
-          title: 'Русский'
-        })
-        await dispatch('fetchInfo') // получить инфу о профиле
-        await dispatch('updatefetchInfo_Order') // обновить инфу о заказе
-        commit('setMess', localizeFilter('LoggedGuest'))
+        if (getters.getOrderData.table != null) {
+          await firebase.auth().signInAnonymously()
+          const uid = await dispatch('getUid')
+          await firebase.database().ref(`/users/${uid}/info`).set({
+            name: 'Guest',
+            email: 'ImGuest',
+            age: 0,
+            bonus: 0,
+            locale: 'ru-RU',
+            title: 'Русский'
+          })
+          await dispatch('fetchInfo') // получить инфу о профиле
+          await dispatch('createInfo_Order') // создать инфу о заказе
+          commit('setMess', localizeFilter('LoggedGuest'))
+        } else { throw new Error(localizeFilter('no_table')) }
       } catch (e) {
         commit('setMess', e)
         throw e

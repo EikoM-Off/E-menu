@@ -38,7 +38,37 @@ export default {
         throw e
       }
     },
-    async addDish ({ dispatch, commit }, data) { // Add new entry
+    async createInfo_Order ({ dispatch, commit, state }) { // Обновить инфу о заказе
+      try {
+        var Data = new Date()
+        var Year = Data.getFullYear()
+        var Month = Data.getMonth()
+        var Day = Data.getDate()
+        var table = state.order.info.table
+        const uid = await dispatch('getUid')
+        const rndID = await dispatch('randomID')
+        const info = (await firebase.database().ref(`/order/${uid}/info`).once('value')).val()
+        console.log(table)
+        if (info === null) {
+          await firebase.database().ref(`/order/${uid}/info/`).set(
+            {
+              time: Day + '.' + Month + '.' + Year,
+              order_id: rndID,
+              table: table,
+              cost_wo_percent: 0,
+              total_cost: 0,
+              payed: false,
+              online_payment: 'online',
+              status: 'none'
+            }
+          )
+        }
+      } catch (e) {
+        commit('setError', e)
+        throw e
+      }
+    },
+    async addDish ({ dispatch, commit }, data) { // добавить в корзину
       try {
         data.count = 1
         const uid = await dispatch('getUid')
@@ -50,7 +80,7 @@ export default {
         throw e
       }
     },
-    async removeOnce ({ dispatch, commit }, { id, count }) {
+    async removeOnce ({ dispatch, commit }, { id, count }) { // отнять 1 к порции или удалить
       const uid = await dispatch('getUid')
       if (count < 2) {
         await firebase.database().ref(`/order/${uid}/dishes/${id}`).remove()
@@ -60,10 +90,18 @@ export default {
       }
       await dispatch('fetchInfo_Order')
     },
-    async addOnce ({ dispatch }, { id, count }) {
+    async addOnce ({ dispatch }, { id, count }) { // прибавить 1 к порции
       const uid = await dispatch('getUid')
       await firebase.database().ref(`/order/${uid}/dishes/${id}/count`).set(count + 1)
       await dispatch('fetchInfo_Order')
+    },
+    randomID () { // генерация ID
+      var abc = 'abcdefghijklmnopqrstuvwxyz0123465798'
+      var rs = ''
+      while (rs.length < 16) {
+        rs += abc[Math.floor(Math.random() * abc.length)]
+      }
+      return rs
     }
 
   },
@@ -93,7 +131,7 @@ export default {
       info: {
         time: '',
         order_id: '',
-        table: 0,
+        table: null,
         cost_wo_percent: 0,
         total_cost: 0,
         payed: false,
