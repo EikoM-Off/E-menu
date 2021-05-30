@@ -3,9 +3,10 @@ import localizeFilter from '@/filters/localize.filter'
 
 export default {
   actions: {
-    async login ({ commit }, { email, password }) { // логин
+    async login ({ commit, dispatch }, { email, password }) { // логин
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password)
+        await dispatch('fetchInfo')
         commit('setMess', localizeFilter('Logged'))
       } catch (e) {
         commit('setMess', e)
@@ -24,6 +25,7 @@ export default {
           locale: 'ru-RU',
           title: 'Русский'
         })
+        await dispatch('fetchInfo')
         commit('setMess', localizeFilter('registered'))
       } catch (e) {
         commit('setMess', e)
@@ -42,6 +44,7 @@ export default {
           locale: 'ru-RU',
           title: 'Русский'
         })
+        await dispatch('fetchInfo')
         commit('setMess', localizeFilter('LoggedGuest'))
       } catch (e) {
         commit('setMess', e)

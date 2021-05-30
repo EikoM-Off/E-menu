@@ -38,6 +38,7 @@ export default {
     clearInfo (state) {
       state.account_data = {
         name: 'Guest',
+        email: 'none',
         age: 0,
         bonus: 0,
         locale: 'ru-RU',
@@ -48,6 +49,7 @@ export default {
   state: {
     account_data: {
       name: 'Guest',
+      email: 'none',
       age: 0,
       bonus: 0,
       locale: 'ru-RU',

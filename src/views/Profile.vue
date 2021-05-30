@@ -12,6 +12,7 @@
       <ul class="collection with-header">
             <li class="collection-header"><h4>{{'Personal_Data' | localize}}</h4></li>
               <li class="collection-item"><b>{{'YName' | localize}}: {{personalData.name}}</b> </li>
+              <li class="collection-item"><b>E-mail: {{personalData.email}}</b> </li>
               <li class="collection-item"><b>{{'Age' | localize}}: {{personalData.age}}</b>  </li>
               <li class="collection-item"><b>{{'Bonus' | localize}}: {{personalData.bonus}}</b>  </li>
         </ul>

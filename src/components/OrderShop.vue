@@ -24,9 +24,10 @@
           <span>x{{dish.count}}</span>
           <div>
             <span class="left btn-flat-small amber-text text-darken-2 pointer" @click="removeOnce (index, dish.count)"><i class="material-icons">remove</i></span>
-            <span class="grey-text text-darken-4">{{dish.cost*dish.count}}{{'kzt' | localize}}</span>
+            <span class="grey-text text-darken-4">{{dish.cost*dish.count}}</span>
             <span class="right btn-flat-small amber-text text-darken-2 pointer" @click="addOnce (index, dish.count)"><i class="material-icons">add</i></span>
           </div>
+         <span>{{'kzt' | localize}}</span>
         </div>
       </div>
     </div>
@@ -55,9 +56,6 @@ export default {
     preload () {
       return this.$store.getters.isUiLocked
     }
-  },
-  mounted () {
-    this.$store.dispatch('fetchInfo_Order')
   },
   methods: {
     removeOnce (id, count) {

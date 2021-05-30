@@ -49,7 +49,6 @@ export default {
       await dispatch('fetchInfo_Order')
     },
     async addOnce ({ dispatch }, { id, count }) {
-      console.log(count)
       const uid = await dispatch('getUid')
       await firebase.database().ref(`/order/${uid}/dishes/${id}/count`).set(count + 1)
       await dispatch('fetchInfo_Order')
@@ -108,6 +107,14 @@ export default {
     },
     getOrderDishes (state) {
       return state.order.dishes
+    },
+    getOrderCost (state) {
+      var costOrder = 0
+      var info = state.order.dishes
+      for (var id in info) {
+        costOrder += info[id].cost * info[id].count
+      }
+      return costOrder
     }
   }
 
