@@ -1,6 +1,8 @@
 <template>
-    <div>
-    <h1>{{category | localize}}</h1>
+    <div class="section">
+    <h4>{{category | localize}}</h4>
+
+    <div class="divider"></div>
 
     <div class="row">
     <div class="col s12">

@@ -40,8 +40,6 @@
 
 <script>
 import Preloader from '@/components/PreLoader'
-// import messages from '@/utils/messages'
-// import M from 'materialize-css'
 export default {
   computed: {
     dishes () {

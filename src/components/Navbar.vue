@@ -4,7 +4,7 @@
     <div class="nav-wrapper">
       <a data-target="slide-out" class="sidenav-trigger show-on-medium-and-up"><i class="material-icons" style="cursor: pointer">restaurant_menu</i></a>
      <ul class="right">
-      <li><a style="cursor: default">{{'Table' | localize}} #13</a></li>
+      <li><a style="cursor: default">{{'Table' | localize}} №{{infoOrder.table}}</a></li>
       <!-- Dropdown Trigger -->
       <li><a class="dropdown-trigger" ref="dropdown" data-target="dropdown1">{{getAccountData.title}}<i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
@@ -61,7 +61,10 @@ export default {
     this.choosed = { title: this.getAccountData.title, id: this.getAccountData.locale }
   },
   computed: {
-    ...mapGetters(['getAccountData'])
+    ...mapGetters(['getAccountData']),
+    infoOrder () {
+      return this.$store.getters.getOrderData // получаем инфо о заказе
+    }
   },
   methods: {
     ...mapMutations(['setLocale']),

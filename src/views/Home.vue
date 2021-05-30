@@ -5,6 +5,10 @@
   <CatalogGrid />
   <FloatButton />
 
+  <div class="divider"></div>
+
+<!--   <Footer /> -->
+
 </div>
 </template>
 
@@ -40,6 +44,7 @@ export default {
     if (messages[this.$route.query.message]) { // выводим сообщения
       this.$message(messages[this.$route.query.message])
     }
+    this.$store.commit('setInfo_Table', this.$route.query.table) // обнуляем сообщения
   },
   methods: {
 

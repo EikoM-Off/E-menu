@@ -8,12 +8,8 @@
         <Orderview />
       </div>
 
-    <div class="divider"></div>
+      <OrderCost />
 
-      <div class="section">
-        <h5>{{'cost' | localize}}</h5>
-        <OrderCost />
-      </div>
     </div>
   </div>
 

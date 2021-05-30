@@ -9,17 +9,29 @@ export default {
         const uid = await dispatch('getUid')
         const info = (await firebase.database().ref(`/order/${uid}/`).once('value')).val()
         commit('setInfo_Order', info)
+        commit('setOrder_Cost', info)
         commit('unlockUi')
       } catch (e) {
         commit('setError', e)
         throw e
       }
     },
-    async updatefetchInfo_Order ({ dispatch, commit, state }) { // Update info from BD
+    async updatefetchDish_Order ({ dispatch, commit, state }) { // Update info in BD
       try {
         const uid = await dispatch('getUid')
-        await firebase.database().ref(`/order/${uid}/`).set(
-          state.order
+        await firebase.database().ref(`/order/${uid}/dishes`).set(
+          state.order.dishes
+        )
+      } catch (e) {
+        commit('setError', e)
+        throw e
+      }
+    },
+    async updatefetchInfo_Order ({ dispatch, commit, state }) { // Обновить инфу о заказе
+      try {
+        const uid = await dispatch('getUid')
+        await firebase.database().ref(`/order/${uid}/info/`).set(
+          state.order.info
         )
       } catch (e) {
         commit('setError', e)
@@ -59,9 +71,21 @@ export default {
     setInfo_Order (state, info) {
       state.order = info
     },
+    setInfo_Table (state, table) {
+      state.order.info.table = table
+    },
     clearInfo_Order (state) {
       state.order.info = {}
       state.order.dishes = {}
+    },
+    setOrder_Cost (state) {
+      var costOrder = 0
+      var info = state.order.dishes
+      for (var id in info) {
+        costOrder += info[id].cost * info[id].count
+      }
+      state.order.info.cost_wo_percent = costOrder
+      state.order.info.total_cost = costOrder + 0.1 * costOrder
     }
   },
   state: {
@@ -70,7 +94,10 @@ export default {
         time: '',
         order_id: '',
         table: 0,
+        cost_wo_percent: 0,
+        total_cost: 0,
         payed: false,
+        online_payment: 'online',
         status: 'none'
       },
       dishes: [{
@@ -107,14 +134,6 @@ export default {
     },
     getOrderDishes (state) {
       return state.order.dishes
-    },
-    getOrderCost (state) {
-      var costOrder = 0
-      var info = state.order.dishes
-      for (var id in info) {
-        costOrder += info[id].cost * info[id].count
-      }
-      return costOrder
     }
   }
 

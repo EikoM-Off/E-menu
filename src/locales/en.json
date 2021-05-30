@@ -69,5 +69,14 @@
   "calories": "Calories",
   "g": "g",
   "kkal": "kkal",
+  "price_of_dishes": "Price of dishes",
+  "total": "Total",
+  "for_service": "for a service charge",
+  "payment": "Payment",
+  "online_payment": "Online payment",
+  "payment_waiter": "Payment to the waiter",
+  "pay": "Pay",
+  "not_paid": "Not paid",
+  "paid": "Paid",
   "Choose_Option": "Choose"
 }

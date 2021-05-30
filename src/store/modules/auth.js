@@ -6,7 +6,8 @@ export default {
     async login ({ commit, dispatch }, { email, password }) { // логин
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password)
-        await dispatch('fetchInfo')
+        await dispatch('fetchInfo') // получить инфу о профиле
+        await dispatch('updatefetchInfo_Order') // обновить инфу о заказе
         commit('setMess', localizeFilter('Logged'))
       } catch (e) {
         commit('setMess', e)
@@ -25,7 +26,8 @@ export default {
           locale: 'ru-RU',
           title: 'Русский'
         })
-        await dispatch('fetchInfo')
+        await dispatch('fetchInfo') // получить инфу о профиле
+        await dispatch('updatefetchInfo_Order') // обновить инфу о заказе
         commit('setMess', localizeFilter('registered'))
       } catch (e) {
         commit('setMess', e)
@@ -44,7 +46,8 @@ export default {
           locale: 'ru-RU',
           title: 'Русский'
         })
-        await dispatch('fetchInfo')
+        await dispatch('fetchInfo') // получить инфу о профиле
+        await dispatch('updatefetchInfo_Order') // обновить инфу о заказе
         commit('setMess', localizeFilter('LoggedGuest'))
       } catch (e) {
         commit('setMess', e)
@@ -58,7 +61,6 @@ export default {
     async logout ({ commit }) { // логаут
       await firebase.auth().signOut()
       commit('clearInfo')
-      // commit('clearInfoAccs')
       commit('setMess', localizeFilter('LoggedOut'))
     },
     async changePassword ({ commit }) { // отправляем запрос на смену пароля
