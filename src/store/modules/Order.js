@@ -95,6 +95,10 @@ export default {
       await firebase.database().ref(`/order/${uid}/dishes/${id}/count`).set(count + 1)
       await dispatch('fetchInfo_Order')
     },
+    async updateTable ({ dispatch, getters }) { // обновить номер стола
+      const uid = await dispatch('getUid')
+      await firebase.database().ref(`/order/${uid}/info/table`).set(getters.getOrderData.table)
+    },
     randomID () { // генерация ID
       var abc = 'abcdefghijklmnopqrstuvwxyz0123465798'
       var rs = ''

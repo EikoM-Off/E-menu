@@ -11,7 +11,7 @@
         <!-- <a class="btn-floating btn-small waves-effect waves-light red darken-4" style="position: absolute; left: -15px; top: -15px;"><i class="material-icons">delete_forever</i></a> -->
         <img style="width: 100%; object-fit: cover; height: 100%;" v-bind:src="dish.img">
       </div>
-      <div class="card-stacked">
+      <div class="card-stacked" style="min-width: 200px;">
         <div class="card-content">
           <span class="card-title" v-if="locale == 'en-US'">{{dish.title_EN}}</span>
           <span class="card-title" v-if="locale == 'ru-RU'">{{dish.title_RU}}</span>

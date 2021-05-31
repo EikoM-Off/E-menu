@@ -28,6 +28,14 @@ const routes = [
       layout: 'main'
     },
     component: () => import('@/views/OrderPage.vue')
+  },
+  {
+    path: '/admin',
+    name: 'AdminPanel',
+    meta: {
+      layout: 'main'
+    },
+    component: () => import('@/views/AdminPage.vue')
   }
 ]
 

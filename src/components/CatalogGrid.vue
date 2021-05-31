@@ -13,8 +13,8 @@
     >
       <div class="card sticky-action large">
       <div class="card-image pointer unselectable">
-        <img class="activator" v-bind:src="dish.img">
-        <span class="card-title">{{'cost' | localize}}: {{dish.cost}}{{'kzt' | localize}}</span>
+        <img class="activator" style="width: 100%; object-fit: cover; height: 100%;" v-bind:src="dish.img">
+        <span class="card-title" style="padding: 5px; background-color: rgb(0 0 0 / 50%); border-radius: 0 5px 0 0;">{{'cost' | localize}}: {{dish.cost}}{{'kzt' | localize}}</span>
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4" v-if="locale == 'en-US'">{{dish.title_EN}}<i class="material-icons right">more_vert</i></span>

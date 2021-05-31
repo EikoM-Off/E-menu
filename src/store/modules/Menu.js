@@ -1,4 +1,5 @@
 import firebase from 'firebase/app'
+import localizeFilter from '@/filters/localize.filter'
 
 export default {
   actions: {
@@ -20,6 +21,19 @@ export default {
         )
       } catch (e) {
         commit('setError', e)
+        throw e
+      }
+    },
+    async addDishMenu ({ dispatch, commit }, { category, data }) { // добавить в меню блюдо
+      try {
+        console.log(category)
+        await firebase.database().ref('/menu/').push(category)
+        await firebase.database().ref(`/menu/${category}/`).push(data)
+        console.log(data)
+        await dispatch('fetchInfo_Menu')
+        commit('setMess', localizeFilter('Added'))
+      } catch (e) {
+        commit('setMess', localizeFilter('Error') + ' "' + e + '"')
         throw e
       }
     }
